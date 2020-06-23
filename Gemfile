@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Gems added by Yan
 gem 'devise'  #gem for authentication (login)
+gem 'bootstrap', '~> 4.5.0'
+gem 'jquery-rails' #for bootstrap
 # Gems added by Yan
 
 
