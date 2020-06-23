@@ -10,4 +10,10 @@
 User.find_or_create_by(email: 'jon@medcapital.com') do |u|
     u.name = 'Jon Snow'
     u.password = '123456'
-  end
+end
+
+#Create the user Jaime Lannister
+User.find_or_create_by(email: 'jaime@medcapital.com') do |u|
+    u.name = 'Jaime Lannister'
+    u.password = '123456'
+end
