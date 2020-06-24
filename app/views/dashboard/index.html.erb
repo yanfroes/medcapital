@@ -1,0 +1,59 @@
+<div id="modal-holder"></div>
+
+
+<p id="notice"><%= notice %></p>
+<%= link_to 'Criar Transferência', new_withdraw_path, class: 'btn btn-outline-success my-2 my-sm-0', data: { modal: true } %>
+
+Total: R$ <%= @total %>
+
+
+<h1>Extrato de Transferências</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Data</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Saldo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @withdraws.each do |withdraw| %>
+      <tr>
+        <td scope="row"><%= withdraw.created_at %></td>
+        <td>Transferência para <%= withdraw.name %> no banco <%= withdraw.bank %>, agência: <%= withdraw.agency %>, conta: <%= withdraw.acc %> e CPF: <%= withdraw.cpf %></td>
+        <td><span class="badge badge-danger">- R$ <%= withdraw.value %></span></td>
+        <td>R$ <%= @total_that_time %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Extrato de Depósitos</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Data</th>
+      <th scope="col">Valor do Depósito</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @deposits.each do |deposit| %>
+      <tr>
+        <td scope="row"><%= deposit.created_at %></td>
+        <td scope="row"><span class="badge badge-pill badge-success">+ R$ <%= deposit.value %></span></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+
+
+<%= link_to 'Add Deposit', new_deposit_path, class: 'btn btn-outline-success my-2 my-sm-0', data: { modal: true } %>
+
+

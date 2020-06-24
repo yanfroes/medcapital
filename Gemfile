@@ -32,6 +32,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'  #gem for authentication (login)
 gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails' #for bootstrap
+gem 'simple_form'
+gem "responders" #gem responders to work with modals
+gem 'ajax-datatables-rails' #for tables
+gem 'jquery-datatables'
 # Gems added by Yan
 
 

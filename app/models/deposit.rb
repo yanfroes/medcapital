@@ -1,3 +1,4 @@
 class Deposit < ApplicationRecord
-  belongs_to :account
+    validates :value, presence: true
+    belongs_to :user, optional: true
 end
