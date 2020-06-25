@@ -1,0 +1,22 @@
+<h1>Transactions</h1>
+
+<table class="responsive nowrap table table-hover" id="dttb-transactions" data-sort="true" data-source="<%= url_for(format: :json)%>">
+  <thead>
+    <tr>
+      <th data-data="value">Value</th>
+      <th data-data="bank">Bank</th>
+      <th data-data="account">Account</th>
+      <th data-data="agency">Agency</th>
+      <th data-data="cpf">Cpf</th>
+      <th data-data="name">Name</th>
+      <th data-data="kind">Kind</th>
+      <th data-data="balance">Balance</th>
+      <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
+    </tr>
+  </thead>
+
+</table>
+
+<br>
+
+<%= link_to 'New Transaction', new_transaction_path %>

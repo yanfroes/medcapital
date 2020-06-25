@@ -4,17 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :account
-  has_many :withdraws
-  has_many :deposits
-
-  before_create do
-    self.build_account
-  end
-
-  def list
-  
-  end
-
+  has_many :transactions
 
 end

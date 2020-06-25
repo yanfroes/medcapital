@@ -1,0 +1,27 @@
+<%= simple_form_for(@transaction, remote: request.xhr?, html: { data: { modal: true } }) do |f| %>
+    <div class="modal-body">
+      Valor
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> R$ </span>
+        </div>
+      <%= f.input :value, label: false, error: 'É necessário adicionar um valor', as: :string %>
+      </div><br>
+    Nome Completo
+    <%= f.input :name, label: false, error: 'É necessário adicionar um nome' %>
+    Banco
+    <%= f.input :bank, label: false, error: 'É necessário adicionar um banco', collection: [ "Banco do Brasil", "Itaú Unibanco", "Nubank", "Santander", "Bradesco", "Banco Inter", "Banco Original"] %>
+    Conta
+    <%= f.input :account, label: false, error: 'É necessário adicionar uma conta', as: :string %>
+    Agência
+    <%= f.input :agency, label: false, error: 'É necessário adicionar uma agência', as: :string %>
+    CPF
+    <%= f.input :cpf, label: false, error: 'É necessário adicionar um CPF', as: :string %>
+    <%= f.hidden_field :kind, :value => "withdraw" %>
+    <%= f.hidden_field :balance, :value => @transaction.value_total_in_time  %>
+  </div>
+
+  <div class="modal-footer">
+    <%= f.button :submit, "Realizar Transferência" , class: 'btn-success'%>
+  </div>
+<% end %>

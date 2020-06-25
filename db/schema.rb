@@ -10,27 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_24_181910) do
+ActiveRecord::Schema.define(version: 2020_06_25_183948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "accounts", force: :cascade do |t|
-    t.float "balance"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_accounts_on_user_id"
-  end
-
-  create_table "deposits", force: :cascade do |t|
-    t.float "value"
-    t.bigint "account_id"
+  create_table "transactions", force: :cascade do |t|
+    t.decimal "value"
+    t.string "bank"
+    t.string "account"
+    t.string "agency"
+    t.string "cpf"
+    t.string "name"
+    t.integer "kind"
+    t.decimal "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.index ["account_id"], name: "index_deposits_on_account_id"
-    t.index ["user_id"], name: "index_deposits_on_user_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,31 +39,9 @@ ActiveRecord::Schema.define(version: 2020_06_24_181910) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.bigint "user_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["user_id"], name: "index_users_on_user_id"
   end
 
-  create_table "withdraws", force: :cascade do |t|
-    t.float "value"
-    t.string "bank"
-    t.integer "acc"
-    t.integer "agency"
-    t.integer "cpf"
-    t.bigint "account_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.string "name"
-    t.index ["account_id"], name: "index_withdraws_on_account_id"
-    t.index ["user_id"], name: "index_withdraws_on_user_id"
-  end
-
-  add_foreign_key "accounts", "users"
-  add_foreign_key "deposits", "accounts"
-  add_foreign_key "deposits", "users"
-  add_foreign_key "users", "users"
-  add_foreign_key "withdraws", "accounts"
-  add_foreign_key "withdraws", "users"
+  add_foreign_key "transactions", "users"
 end

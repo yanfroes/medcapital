@@ -24,7 +24,7 @@ my-2 my-sm-0', style: "float: right;", data: { modal: true } %>
           withdraw.cpf %>
           </td>
           <td>
-            <span class="badge badge-danger">- R$ <%= number_to_currency_br(withdraw.value) %></span>
+            <span class="badge badge-danger">- <%= number_to_currency_br(withdraw.value) %></span>
           </td>
           <td>
             <span class="badge badge-primary"><%= number_to_currency_br(@total_that_time) %></span>
