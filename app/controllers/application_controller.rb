@@ -6,4 +6,5 @@ class ApplicationController < ActionController::Base
       options[:responder] = ModalResponder
       respond_with *args, options, &blk
     end
+
   end

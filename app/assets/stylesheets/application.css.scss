@@ -17,3 +17,17 @@
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+// Aumentar a fonte dos badges onde ficam o valor das transações nos cards
+.card .badge {
+    font-size: 100%;
+}
+// Aumentar a fonte dos itens dos cards
+.card td {
+    font-size: 15px;
+}
+
+// Regularizar o tamanho do input de dinheiro
+.input-group .form-group {
+    margin-bottom: 0px;
+}

@@ -1,0 +1,24 @@
+<!-- Card to show all transactions-->
+
+  <h1>Trying to show all transactions in the same table, orderer by :created_at</h1>
+  <div class="card">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Data</th>
+          <th scope="col">Valor do Depósito</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @list.map do |a| %>
+          <tr>
+            <td scope="row"><%= (a).created_at.strftime("%d/%m/%Y - %T") %></td>
+            <td scope="row">
+              <span class="badge badge-pill badge-success"
+            >+ <%= number_to_currency_br(a.value) %></span>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>

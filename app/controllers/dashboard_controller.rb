@@ -6,6 +6,10 @@ def index
 @withdraws = Withdraw.all.order('created_at DESC')
 @total = Deposit.sum(:value) - Withdraw.sum(:value)
 @total_that_time = Deposit.sum(:value) - Withdraw.where("created_at < ?", 50.minutes.ago).sum(:value)
+
+@list = (@deposits + @withdraws)
+
 end
+
 
 end

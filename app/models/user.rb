@@ -11,4 +11,10 @@ class User < ApplicationRecord
   before_create do
     self.build_account
   end
+
+  def list
+  
+  end
+
+
 end
