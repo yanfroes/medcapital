@@ -36,6 +36,7 @@ gem 'simple_form'
 gem "responders" #gem responders to work with modals
 gem 'ransack'
 gem 'jquery-ui-rails'
+gem 'rails_12factor'
 # Gems added by Yan
 
 
