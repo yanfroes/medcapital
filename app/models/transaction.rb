@@ -13,4 +13,8 @@ class Transaction < ApplicationRecord
     def value_total_in_time
         Transaction.where(kind: "deposit").sum(:value) - Transaction.where(kind: "withdraw").sum(:value)
     end
+
+    def date
+      created_at.strftime("%m/%d/%Y - %T") 
+    end
 end

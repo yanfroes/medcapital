@@ -1,17 +1,18 @@
 <!-- Main navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg ">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#"><%= image_tag("logoMedcapital.png", style: "height:30px") %></a>
+  <a class="navbar-brand" href="#"><%= image_tag("logoMedcapital-invert.png", style: "height:30px") %></a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <!-- ToDo -->
     </ul>
-    
-      <button class="btn btn-outline-success my-2 my-sm-0">Desconectar</button>
-    
+          <%= link_to destroy_user_session_path,{ class: "nav-link", method: :delete} do %>
+          <span style="color:white"><i class="fas fa-sign-out-alt"></i>
+          Deslogar</span>
+          <% end %>
   </div>
 </nav>
 <!-- /main navbar -->

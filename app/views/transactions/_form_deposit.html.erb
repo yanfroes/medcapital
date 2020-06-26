@@ -9,6 +9,7 @@
       </div><br>
       <%= f.hidden_field :kind, :value => "deposit" %>
       <%= f.hidden_field :balance, :value => @transaction.value_total_in_time  %>
+      <%= f.hidden_field :date, :value => Date.today.strftime("%m-%D-%Y")  %>
   </div>
 
   <div class="modal-footer">

@@ -16,6 +16,9 @@
 //= require bootstrap-sprockets
 //= require activestorage
 //= require turbolinks
+//= require jquery-ui/widgets/datepicker
 //= require_tree .
 
 
+import "@fortawesome/fontawesome-free/js/all";
+$("#datepicker").datepicker();

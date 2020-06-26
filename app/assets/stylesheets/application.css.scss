@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require jquery-ui/datepicker
  *= require_tree .
  *= require_self
  */
@@ -17,6 +18,14 @@
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+// FontAwesome
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/regular';
+@import '@fortawesome/fontawesome-free/scss/brands';
+@import '@fortawesome/fontawesome-free/scss/v4-shims';
 
 // Aumentar a fonte dos badges onde ficam o valor das transações nos cards
 .card .badge {
@@ -30,4 +39,46 @@
 // Regularizar o tamanho do input de dinheiro
 .input-group .form-group {
     margin-bottom: 0px;
+}
+
+.card .table {
+    margin-bottom: 0px
+}
+
+// Estilização do Card do Balanço Total da Conta
+.card-balance {
+    margin-top:15px;
+    margin-bottom:15px;
+    border-top: 5px solid #316AA7;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+// Estilização dos Cards de Transações
+.card-transactions {
+    margin-top:15px;
+    margin-bottom:15px;
+    border-top: 5px solid #316AA7;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.transactions-title {
+    padding:10px;
+}
+.data-search {
+    padding:10px;
+}
+
+// Estilização da Navbar
+.navbar {
+    background-color: #316AA7;
+}
+
+//Estilização dos Botões
+.btn-outline-primary {
+    color: #316AA7;
+    border-color: #316AA7;
+  }
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #316AA7;
+    border-color: #316AA7;
 }

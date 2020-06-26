@@ -34,8 +34,8 @@ gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails' #for bootstrap
 gem 'simple_form'
 gem "responders" #gem responders to work with modals
-gem 'ajax-datatables-rails' #for tables
-gem 'jquery-datatables'
+gem 'ransack'
+gem 'jquery-ui-rails'
 # Gems added by Yan
 
 

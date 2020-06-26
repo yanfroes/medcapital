@@ -1,10 +1,17 @@
 <!-- Card to show all the transactions -->
-
-<%= link_to 'Criar Transferência', new_withdraw_transactions_path, class: 'btn btn-outline-success 
-my-2 my-sm-0', style: "float: right;", data: { modal: true } %>
-
-<h1>Extrato de Transferências</h1>
-<div class="card">
+<div class="card card-transactions">
+  <div class="row">
+    <div class="col">
+      <h3 class="transactions-title">Extrato de Transferências</h3>
+    </div>
+    <div class="col data-search">
+      <%= search_form_for @q, url: root_path do |f| %>
+        <%= f.search_field :created_at_gteq, "data-provide" => "datepicker", :id => "datepicker1", class: "datepicker"  %>
+        <%= f.search_field :created_at_lteq, "data-provide" => "datepicker", :id => "datepicker2", class: "datepicker"  %>
+        <%= f.submit 'Pesquisar', class: 'btn btn-outline-primary'%>
+      <% end %>
+    </div>
+  </div>
   <table class="table">
     <thead>
       <tr>
@@ -16,42 +23,42 @@ my-2 my-sm-0', style: "float: right;", data: { modal: true } %>
     </thead>
     <tbody>
       <% @transactions.each do |transaction| %>
-      <% if transaction.kind == "withdraw" %>
-        <tr class="table-danger">
-          <td scope="row"><%= transaction.created_at.strftime("%d/%m/%Y - %T") %></td>
-          <td>
-            Transferência para <%= transaction.name %> no banco <%= transaction.bank %>,
-            agência: <%= transaction.agency %>, conta: <%= transaction.account %> e CPF: <%=
+        <% if transaction.kind == "withdraw" %>
+          <tr class="table-danger">
+            <td scope="row"><%= transaction.date %></td>
+            <td>
+              Transferência para <%= transaction.name %> no banco <%= transaction.bank %>,
+              agência: <%= transaction.agency %>, conta: <%= transaction.account %> e CPF: <%=
           transaction.cpf %>
-          </td>
-          <td>
-            <span class="badge badge-danger">- <%= number_to_currency_br(transaction.value) %></span>
-          </td>
-          <td>
-            <span class="badge badge-primary"><%= number_to_currency_br(transaction.total_when_withdraw) %></span>
-          </td>
-        </tr>
+            </td>
+            <td>
+              <span class="badge badge-danger">- <%= number_to_currency_br(transaction.value) %></span>
+            </td>
+            <td>
+              <span class="badge badge-primary"><%= number_to_currency_br(transaction.total_when_withdraw) %></span>
+            </td>
+          </tr>
         <% else %>
-        <tr class="table-success">
-          <td scope="row"><%= transaction.created_at.strftime("%d/%m/%Y - %T") %></td>
-          <td>
-            Depósito recebido.
-          </td>
-          <td>
-            <span class="badge badge-success">+ <%= number_to_currency_br(transaction.value) %></span>
-          </td>
-          <td>
-            <span class="badge badge-primary"><%= number_to_currency_br(transaction.total_when_deposit) %></span>
-          </td>
-        </tr>
-      <% end %>
+          <tr class="table-success">
+            <td scope="row"><%= transaction.date %></td>
+            <td>
+              Depósito recebido.
+            </td>
+            <td>
+              <span class="badge badge-success">+ <%= number_to_currency_br(transaction.value) %></span>
+            </td>
+            <td>
+              <span class="badge badge-primary"><%= number_to_currency_br(transaction.total_when_deposit) %></span>
+            </td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
 </div>
-
 <br>
-
-
-<%= link_to 'Criar Depósito', new_deposit_transactions_path, class: 'btn btn-outline-success 
-my-2 my-sm-0', style: "float: right;", data: { modal: true } %>
+<script>
+  $('.datepicker').datepicker({
+    format: 'mm/dd/yyyy'
+  });
+</script>

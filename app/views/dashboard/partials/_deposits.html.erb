@@ -1,21 +1,23 @@
 <!-- Card to show all the Deposits-->  
 
-  <%= link_to 'Adicionar Depósito', new_deposit_path, class: 'btn btn-outline-success
-  my-2 my-sm-0', style: "float: right;", data: { modal: true } %>
 
-<h1>Extrato de Depósitos</h1>
-<div class="card">
+<div class="card card-transactions">
+<h3 class="transactions-title">Extrato de Depósitos</h3>
   <table class="table">
     <thead>
       <tr>
         <th scope="col">Data</th>
-        <th scope="col">Valor do Depósito</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Valor</th>
       </tr>
     </thead>
     <tbody>
       <% @deposits.each do |deposit| %>
         <tr>
           <td scope="row"><%= deposit.created_at.strftime("%d/%m/%Y - %T") %></td>
+          <td>
+            Depósito recebido.
+          </td>
           <td scope="row">
             <span class="badge badge-pill badge-success"
             >+ <%= number_to_currency_br(deposit.value) %></span>

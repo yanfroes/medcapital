@@ -1,17 +1,14 @@
 <!-- Card to show all the Withdraws -->
 
-<%= link_to 'Criar Transferência', new_withdraw_path, class: 'btn btn-outline-success 
-my-2 my-sm-0', style: "float: right;", data: { modal: true } %>
 
-<h1>Extrato de Transferências</h1>
-<div class="card">
+<div class="card card-transactions">
+<h3 class="transactions-title">Extrato de Transferências</h3>
   <table class="table">
     <thead>
       <tr>
         <th scope="col">Data</th>
         <th scope="col">Descrição</th>
         <th scope="col">Valor</th>
-        <th scope="col">Saldo</th>
       </tr>
     </thead>
     <tbody>
@@ -20,14 +17,11 @@ my-2 my-sm-0', style: "float: right;", data: { modal: true } %>
           <td scope="row"><%= withdraw.created_at.strftime("%d/%m/%Y - %T") %></td>
           <td>
             Transferência para <%= withdraw.name %> no banco <%= withdraw.bank %>,
-            agência: <%= withdraw.agency %>, conta: <%= withdraw.acc %> e CPF: <%=
+            agência: <%= withdraw.agency %>, conta: <%= withdraw.account %> e CPF: <%=
           withdraw.cpf %>
           </td>
           <td>
             <span class="badge badge-danger">- <%= number_to_currency_br(withdraw.value) %></span>
-          </td>
-          <td>
-            <span class="badge badge-primary"><%= number_to_currency_br(@total_that_time) %></span>
           </td>
         </tr>
       <% end %>
