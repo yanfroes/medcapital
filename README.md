@@ -1,24 +1,28 @@
-# README
+![ruby](https://img.shields.io/badge/Ruby-2.6.1-red.svg)
+![rails](https://img.shields.io/badge/Rails-5.2.4-red.svg)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# MedCapital Test
 
-Things you may want to cover:
+----
+## About this project
+This project is a development challenge that is part of a selective proccess at [MedCapital](https://medcapital.com.br/).
 
-* Ruby version
 
-* System dependencies
+----
+## How it works?
+This project is a "bank wallet" and you can make Deposits and Withdraws. 
+Have some dashboards to see the transactions.
+Can add Transactions in a modal and search the Transactions in determined data range.
 
-* Configuration
+----
+## Initial Setup
+Run the follow commands:
+`rails db:create`
+`rails db:migrate`
+`rails db:seed`
 
-* Database creation
+----
+## Access
+Accessing the system use one of users that you have in the `db/seeds.rb`
+jon@medcapital.com / 123456 or jaime@medcapital.com
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
