@@ -17,6 +17,8 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery-ui/widgets/datepicker
+//= require modal
+//= require cable
 //= require_tree .
 
 
