@@ -17,6 +17,7 @@ Can add Transactions in a modal and search the Transactions in determined data r
 ----
 ## Initial Setup
 Run the follow commands:
+`bundle install`
 `rails db:create`
 `rails db:migrate`
 `rails db:seed`

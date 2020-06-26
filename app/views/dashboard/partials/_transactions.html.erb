@@ -6,8 +6,8 @@
     </div>
     <div class="col data-search">
       <%= search_form_for @q, url: root_path do |f| %>
-        <%= f.search_field :created_at_gteq, "data-provide" => "datepicker", :id => "datepicker1", class: "datepicker"  %>
-        <%= f.search_field :created_at_lteq, "data-provide" => "datepicker", :id => "datepicker2", class: "datepicker"  %>
+        <%= f.search_field :date_gteq, "data-provide" => "datepicker", :id => "datepicker1", class: "datepicker"  %>
+        <%= f.search_field :date_lteq, "data-provide" => "datepicker", :id => "datepicker2", class: "datepicker"  %>
         <%= f.submit 'Pesquisar', class: 'btn btn-outline-primary'%>
       <% end %>
     </div>

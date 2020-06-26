@@ -19,7 +19,7 @@
     <%= f.input :cpf, label: false, error: 'É necessário adicionar um CPF', as: :string %>
     <%= f.hidden_field :kind, :value => "withdraw" %>
     <%= f.hidden_field :balance, :value => @transaction.value_total_in_time  %>
-    <%= f.hidden_field :date, :value => Date.today   %>
+    <%= f.hidden_field :date, :value => Date.today %>
 
   </div>
 
